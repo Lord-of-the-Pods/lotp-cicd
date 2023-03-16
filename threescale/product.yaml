@@ -1,7 +1,7 @@
 apiVersion: capabilities.3scale.net/v1beta1
 kind: Product
 metadata:
-  name: LotpProduct
+  name: lotp-product
 spec:
   name: "LotpProduct"
   deployment:
@@ -40,3 +40,5 @@ spec:
       path: /account
     users-backend:
       path: /users
+    login-backend:
+      path: /login
