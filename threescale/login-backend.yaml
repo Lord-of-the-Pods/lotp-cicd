@@ -5,5 +5,5 @@ metadata:
   namespace: threescale
 spec:
   name: login-backend
-  privateBaseURL: 'https://login-microservice-svc.lotp.svc.cluster.local:8080'
+  privateBaseURL: 'http://login-microservice-svc.lotp.svc.cluster.local:8080'
   systemName: login-backend
