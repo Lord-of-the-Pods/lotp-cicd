@@ -1,0 +1,42 @@
+apiVersion: capabilities.3scale.net/v1beta1
+kind: Product
+metadata:
+  name: LotpProduct
+spec:
+  name: "LotpProduct"
+  deployment:
+    apicastHosted:
+      authentication:
+        appKeyAppID:
+          appID: myAppID
+          appKey: myAppKey
+  metrics:
+    hits:
+      description: Number of API hits
+      friendlyName: Hits
+      unit: "hit"
+  methods:
+    method01:
+      friendlyName: Method01
+  mappingRules:
+    - httpMethod: GET
+      pattern: "/login"
+      increment: 1
+      metricMethodRef: hits
+    - httpMethod: GET
+      pattern: "/accounts"
+      increment: 1
+      metricMethodRef: method01
+  applicationPlans:
+    plan01:
+      name: "My Plan 01"
+      setupFee: "14.56"
+    plan02:
+      name: "My Plan 02"
+      trialPeriod: 3
+      costMonth: "30.00"
+  backendUsages:
+    account-backend:
+      path: /account
+    users-backend:
+      path: /users
