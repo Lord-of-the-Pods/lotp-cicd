@@ -2,7 +2,7 @@ apiVersion: capabilities.3scale.net/v1beta1
 kind: Backend
 metadata:
   name: account-backend
-  namespace: threescale
+  namespace: 3scale
 spec:
   name: account-backend
   privateBaseURL: 'http://account-microservice-svc.lotp.svc.cluster.local:8080'
