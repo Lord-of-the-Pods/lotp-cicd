@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: users-microservice
+        sidecar.istio.io/inject: 'true'
     spec:
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is:001
