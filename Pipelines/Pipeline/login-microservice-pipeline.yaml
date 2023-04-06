@@ -115,7 +115,7 @@ spec:
         value: >-
           https://github.com/Lord-of-the-Pods/lotp-cicd.git
       - name: path
-        value: yamls/Openshift/Deployments
+        value: Applications/Deployments
       - name: fileName
         value: login-microservice.yaml
       - name: imageName
