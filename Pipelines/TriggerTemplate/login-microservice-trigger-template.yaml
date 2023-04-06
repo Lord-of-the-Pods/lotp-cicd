@@ -28,6 +28,8 @@ spec:
         value: $(tt.params.git-revision)
       - name: git-pushid
         value: $(tt.params.git-pushid)
+      - name: image-registry-server
+        value: quay.io
       pipelineRef:
         name: login-microservice-pipeline
       resources: []
