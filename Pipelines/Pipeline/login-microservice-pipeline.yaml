@@ -12,6 +12,10 @@ spec:
     description: Reference of the Image registry server.
     name: image-registry-server
     type: string
+  - default: lotp
+    description: Namespace where the deployment has to be performed
+    name: namespace
+    type: string
   tasks:
   - name: git-clone
     params:
@@ -98,6 +102,8 @@ spec:
       value: login-microservice
     - name: IMAGE
       value: $(params.image-registry-server)/lotp/login-microservice-is:$(params.git-pushid)
+    - name: namespace
+        value: $(params.namespace)
     runAfter:
     - buildah-tag
     taskRef:
