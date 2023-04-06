@@ -18,7 +18,7 @@ spec:
         tekton.dev/pipeline: login-microservice-pipeline
       namespace: lotp-pipelines
     spec:
-      serviceAccountName: pipeline-run-sa
+      serviceAccountName: pipeline
       params:
       - name: git-repo-name
         value: $(tt.params.git-repo-name)
