@@ -16,7 +16,7 @@ spec:
       generateName: login-microservice-pipeline-$(tt.params.git-pushid)-
       labels:
         tekton.dev/pipeline: login-microservice-pipeline
-      namespace: lotp
+      namespace: lotp-pipelines
     spec:
       serviceAccountName: pipeline-run-sa
       params:
