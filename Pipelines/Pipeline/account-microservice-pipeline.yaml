@@ -8,6 +8,10 @@ spec:
     description: Reference of the image buildah will produce.
     name: git-pushid
     type: string
+  - default: quay.io
+      description: Reference of the Image registry server.
+      name: image-registry-server
+      type: string
   tasks:
   - name: git-clone
     params:
@@ -43,7 +47,7 @@ spec:
   - name: buildah
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is
+      value: $(image-registry-server)/lotp/account-microservice-is
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -67,7 +71,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+      value: $(image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -93,7 +97,7 @@ spec:
     - name: deployment
       value: account-microservice
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+      value: $(image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
     runAfter:
     - buildah-tag
     taskRef:
@@ -110,7 +114,7 @@ spec:
         value: account-microservice.yaml
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+          $(image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
