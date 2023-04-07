@@ -5,7 +5,7 @@ metadata:
   name: account-microservice-pipeline
 spec:
   params:
-    - default: xxxxx
+  - default: 00000001
       description: Reference of the image buildah will produce.
       name: git-pushid
       type: string
@@ -13,6 +13,10 @@ spec:
       description: Reference of the Image registry server.
       name: image-registry-server
       type: string
+  - default: lotp
+    description: Namespace where the deployment has to be performed
+    name: namespace
+    type: string
   tasks:
     - name: git-clone
       params:
@@ -98,7 +102,9 @@ spec:
         - name: deployment
           value: account-microservice
         - name: IMAGE
-          value: $(params.image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
+      value: $(params.image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
+    - name: namespace
+      value: $(params.namespace)
       runAfter:
         - buildah-tag
       taskRef:
@@ -109,7 +115,7 @@ spec:
         - name: configGitUrl
           value: https://github.com/Lord-of-the-Pods/lotp-cicd.git
         - name: path
-          value: yamls/Openshift/Deployments
+        value: Applications/Deployments
         - name: fileName
           value: account-microservice.yaml
         - name: imageName

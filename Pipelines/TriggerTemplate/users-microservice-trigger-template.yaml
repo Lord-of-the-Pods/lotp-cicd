@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: account-microservice-trigger-template
+  name: users-microservice-trigger-template
 spec:
   params:
   - name: git-repo-name
@@ -14,10 +14,10 @@ spec:
     kind: PipelineRun
     metadata:
       annotations: {}
-      generateName: account-microservice-pipeline-$(tt.params.git-pushid)-
+      generateName: users-microservice-pipeline-$(tt.params.git-pushid)-
       labels:
-        tekton.dev/pipeline: account-microservice-pipeline
-      namespace: lotp
+        tekton.dev/pipeline: users-microservice-pipeline
+      namespace: lotp-pipelines
     spec:
       serviceAccountName: pipeline
       params:
@@ -32,7 +32,7 @@ spec:
       - name: image-registry-server
         value: quay.io
       pipelineRef:
-        name: account-microservice-pipeline
+        name: users-microservice-pipeline
       resources: []
       status: null
       workspaces:

@@ -8,6 +8,7 @@ spec:
   - name: git-repo-url
   - name: git-revision
   - name: git-pushid
+  - name: image-registry-server
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
@@ -16,8 +17,9 @@ spec:
       generateName: ui-microservice-pipeline-$(tt.params.git-pushid)-
       labels:
         tekton.dev/pipeline: ui-microservice-pipeline
-      namespace: lotp
+      namespace: lotp-pipelines
     spec:
+      serviceAccountName: pipeline
       params:
       - name: git-repo-name
         value: $(tt.params.git-repo-name)
@@ -27,6 +29,8 @@ spec:
         value: $(tt.params.git-revision)
       - name: git-pushid
         value: $(tt.params.git-pushid)
+      - name: image-registry-server
+        value: quay.io
       pipelineRef:
         name: ui-microservice-pipeline
       resources: []
