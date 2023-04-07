@@ -112,8 +112,7 @@ spec:
   - name: gitops-task
     params:
       - name: configGitUrl
-        value: >-
-          https://github.com/Lord-of-the-Pods/lotp-cicd.git
+        value: https://github.com/Lord-of-the-Pods/lotp-cicd.git
       - name: path
         value: Applications/Deployments
       - name: fileName

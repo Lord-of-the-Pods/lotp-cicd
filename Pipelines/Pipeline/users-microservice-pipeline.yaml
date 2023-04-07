@@ -112,15 +112,13 @@ spec:
   - name: gitops-task
     params:
       - name: configGitUrl
-        value: >-
-          https://github.com/Lord-of-the-Pods/lotp-cicd.git
+        value: https://github.com/Lord-of-the-Pods/lotp-cicd.git
       - name: path
         value: Applications/Deployments
       - name: fileName
         value: users-microservice.yaml
       - name: imageName
-        value: >-
-          $(params.image-registry-server)/lotp/users-microservice-is:$(params.git-pushid)
+        value: $(params.image-registry-server)/lotp/users-microservice-is:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail

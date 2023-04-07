@@ -102,9 +102,9 @@ spec:
         - name: deployment
           value: account-microservice
         - name: IMAGE
-      value: $(params.image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
-    - name: namespace
-      value: $(params.namespace)
+          value: $(params.image-registry-server)/lotp/account-microservice-is:$(params.git-pushid)
+        - name: namespace
+          value: $(params.namespace)
       runAfter:
         - buildah-tag
       taskRef:
