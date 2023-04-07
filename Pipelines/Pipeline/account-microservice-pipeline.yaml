@@ -6,13 +6,13 @@ metadata:
 spec:
   params:
   - default: 00000001
-      description: Reference of the image buildah will produce.
-      name: git-pushid
-      type: string
-    - default: quay.io
-      description: Reference of the Image registry server.
-      name: image-registry-server
-      type: string
+    description: Reference of the image buildah will produce.
+    name: git-pushid
+    type: string
+  - default: quay.io
+    description: Reference of the Image registry server.
+    name: image-registry-server
+    type: string
   - default: lotp
     description: Namespace where the deployment has to be performed
     name: namespace
