@@ -7,4 +7,9 @@ data:
   application.properties: |
     server.ssl.enabled=false
     url.user.microservice.getUsers=http://users-microservice-svc.lotp.svc.cluster.local:8080/api/getUsers
-    url.user.microservice.addUser=http://users-microservice-svc.lotp.svc.cluster.local:8080/api/getUsers
+    url.user.microservice.addUser=http://users-microservice-svc.lotp.svc.cluster.local:8080/api/addUser
+    spring.application.name=login-microservice
+    opentracing.jaeger.udp-sender.host=jaeger-collector.istio-system.svc
+    opentracing.jaeger.udp-sender.port=14268
+    opentracing.jaeger.log-spans=true
+    opentracing.jaeger.enable-b3-propagation=true
