@@ -41,11 +41,12 @@ spec:
 
         echo "Updating yaml"
 
-        tag=$(inputs.params.imageTag: -5)
 
+        tag=$(inputs.params.imageTag)
         echo $tag
-
-        finalName=$(inputs.params.imageName):$tag
+        last5chars=${tag: -5}
+        echo $last5chars
+        finalName=$(inputs.params.imageName):$last5chars
 
         sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image: $finalName#" $(inputs.params.fileName)
 
