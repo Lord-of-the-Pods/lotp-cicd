@@ -43,9 +43,13 @@ spec:
 
 
         tag=$(inputs.params.imageTag)
+
         echo $tag
+
         last5chars=${tag: -5}
+
         echo $last5chars
+
         finalName=$(inputs.params.imageName):$last5chars
 
         sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image: $finalName#" $(inputs.params.fileName)
