@@ -118,7 +118,7 @@ spec:
       - name: fileName
         value: login-microservice.yaml
       - name: imageName
-        value: $(params.image-registry-server)/lotp/login-microservice-is:$(params.git-pushid)
+        value: $(params.image-registry-server)/lotp/login-microservice-is
       - name: imageTag
         value: $(params.git-pushid)
       - name: userName
