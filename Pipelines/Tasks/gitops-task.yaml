@@ -12,6 +12,8 @@ spec:
       type: string
     - name: imageName
       type: string
+    - name: imageTag
+      type: string
     - name: userName
       type: string
     - name: userEmail
@@ -35,10 +37,17 @@ spec:
 
         cd gitops/$(inputs.params.path)
 
+        echo "Get Last 5 characters of the "
 
         echo "Updating yaml"
 
-        sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image: $(inputs.params.imageName)#" $(inputs.params.fileName)
+        tag=$(inputs.params.imageTag: -5)
+
+        echo $tag
+
+        finalName=$(inputs.params.imageName):$tag
+
+        sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image: $finalName#" $(inputs.params.fileName)
 
         cat $(inputs.params.fileName)
 

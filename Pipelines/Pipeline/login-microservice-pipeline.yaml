@@ -119,6 +119,8 @@ spec:
         value: login-microservice.yaml
       - name: imageName
         value: $(params.image-registry-server)/lotp/login-microservice-is:$(params.git-pushid)
+      - name: imageTag
+        value: $(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
