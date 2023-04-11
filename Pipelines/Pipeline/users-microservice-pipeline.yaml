@@ -118,7 +118,9 @@ spec:
       - name: fileName
         value: users-microservice.yaml
       - name: imageName
-        value: $(params.image-registry-server)/lotp/users-microservice-is:$(params.git-pushid)
+        value: $(params.image-registry-server)/lotp/users-microservice-is
+      - name: imageTag
+        value: $(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
