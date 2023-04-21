@@ -26,7 +26,7 @@ spec:
     - httpMethod: GET
       pattern: "/accounts"
       increment: 1
-      metricMethodRef: method01
+      metricMethodRef: hits
   applicationPlans:
     plan01:
       name: "My Plan 01"
@@ -37,7 +37,7 @@ spec:
       costMonth: "30.00"
   backendUsages:
     account-backend:
-      path: /account
+      path: /accounts
     users-backend:
       path: /users
     login-backend:
