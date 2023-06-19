@@ -16,7 +16,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:001
+      - image: quay.io/lotp/account-microservice-is:1:/lotp/account-microservice-is:001
         imagePullPolicy: Always
         name: account-microservice
         ports:
