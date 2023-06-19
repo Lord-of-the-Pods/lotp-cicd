@@ -4,7 +4,8 @@ metadata:
   name: ui-microservice-svc
 spec:
   ports:
-  - port: 8081
+  - name: http-8081
+    port: 8081
     protocol: TCP
     targetPort: 8081
   selector:
