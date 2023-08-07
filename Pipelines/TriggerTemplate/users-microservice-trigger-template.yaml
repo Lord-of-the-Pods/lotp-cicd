@@ -39,3 +39,6 @@ spec:
       - name: shared-workspace
         persistentVolumeClaim:
           claimName: trigger2
+      - name: maven-settings
+        persistentVolumeClaim:
+          claimName: mvn2
