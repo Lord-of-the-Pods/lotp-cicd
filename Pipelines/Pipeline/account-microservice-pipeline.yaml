@@ -7,10 +7,10 @@ spec:
   - default: 00000001
     description: Reference of the image buildah will produce.
     name: git-pushid
-      type: string
-    - default: maven-repo-cache
-      description: maven home
-      name: maven-settings
+    type: string
+  - default: maven-repo-cache
+    description: maven home
+    name: maven-settings
     type: string
   - default: quay.io
     description: Reference of the Image registry server.
