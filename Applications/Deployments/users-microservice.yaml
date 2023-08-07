@@ -16,7 +16,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-      - image: quay.io/lotp/users-microservice-is:7ffbc
+      - image: quay.io/lotp/users-microservice-is:e6166
         imagePullPolicy: Always
         name: users-microservice
         ports:
